@@ -54,18 +54,10 @@ function isValid(input) {
     return false;
 }
 var data = fs.readFileSync("AdventOfCode2/input1", "utf8");
-//let input1 = [7, 6, 4, 2, 1];
-//let input2 = [1, 2, 7, 8, 9];
-//let input3 = [9, 7, 6, 2, 1];
-//let input4 = [1, 3, 2, 4, 5];
-//let input5 = [8, 6, 4, 4, 1];
-//let input6 = [1, 3, 6, 7, 9];
-var arr = data.split("\n");
-var two_d_arr = arr.map(function (row) { return row.split(' '); });
-var number_arr = two_d_arr.map(function (row) { return row.map(function (str) { return parseInt(str); }); });
+var arr = data.split("\n").map(function (row) { return row.split(' '); }).map(function (row) { return row.map(function (str) { return parseInt(str); }); });
 var sum = 0;
-for (var i = 0; i < number_arr.length; i++) {
-    if (isValid(number_arr[i]))
+for (var i = 0; i < arr.length; i++) {
+    if (isValid(arr[i]))
         sum += 1;
 }
 console.log(sum);

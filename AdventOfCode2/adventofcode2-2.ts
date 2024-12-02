@@ -52,21 +52,12 @@ function isValid(input: number[]) : Boolean {
 }
 let data = fs.readFileSync("AdventOfCode2/input1", "utf8");
 
-//let input1 = [7, 6, 4, 2, 1];
-//let input2 = [1, 2, 7, 8, 9];
-//let input3 = [9, 7, 6, 2, 1];
-//let input4 = [1, 3, 2, 4, 5];
-//let input5 = [8, 6, 4, 4, 1];
-//let input6 = [1, 3, 6, 7, 9];
+let arr = data.split("\n").map(row => row.split(' ')).map(row => row.map(str => parseInt(str)));
 
-let arr = data.split("\n");
-let two_d_arr = arr.map(row => row.split(' '));
-
-let number_arr: number[][] = two_d_arr.map(row => row.map(str => parseInt(str)));
 let sum = 0;
 
-for (let i = 0; i < number_arr.length; i++) {
-    if (isValid(number_arr[i])) sum += 1;
+for (let i = 0; i < arr.length; i++) {
+    if (isValid(arr[i])) sum += 1;
 }
 console.log(sum);
 
